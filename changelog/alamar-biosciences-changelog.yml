@@ -1,0 +1,67 @@
+generated: '2026-08-06'
+method: searched
+source: https://nulisaseqr.alamarbio.com/news/
+source_raw: https://raw.githubusercontent.com/Alamar-Biosciences/NULISAseqR/main/NEWS.md
+scope: >-
+  There is no API changelog — Alamar publishes no web API. This is the dated release history
+  of the first-party open-source NULISAseqR R package, the company's only public
+  machine-installable software surface.
+subject: NULISAseqR
+versioning:
+  scheme: semver
+  current: 1.5.1
+  current_date: '2026-05-04'
+  tags: https://github.com/Alamar-Biosciences/NULISAseqR/tags
+entries:
+- version: 1.5.1
+  date: '2026-05-04'
+  breaking: false
+  highlights:
+  - format_wide_to_long() renames user covariate columns that collide with reserved names
+    (e.g. PlateID) by appending a _covar suffix, and emits a message when it does.
+  - detectability_summary() and mergeNULISAseq() switched from do.call(rbind) to
+    dplyr::bind_rows(), fixing crashes when plates carry mismatched XML schemas.
+  - processXML() now uses is.na() rather than is.null() for XML attribute checks, fixing
+    silent failures when attributes return NA.
+  - User Guide updated for the Neuro 220 panel and noDetectability target behavior.
+  - DESCRIPTION added XML and fields to Imports so dependencies install automatically.
+- version: 1.5.0
+  date: '2026-03-14'
+  breaking: false
+  highlights:
+  - loadNULISAseq() accepts a pre-built list structure as well as file paths, enabling
+    reprocessing with sample exclusions without re-parsing XML.
+  - New exported helpers get_reverse_curve_targets() and get_noDetectability_targets().
+  - Reverse-curve targets fully excluded from detectability and labeled High Abundance;
+    noDetectability targets get individual detectability but are excluded from summary stats.
+  - detectability_summary() gained an exclude_targets parameter and returns numeric columns
+    by default (format=FALSE) to preserve downstream computation.
+  - Minimum R version now declared in DESCRIPTION (native pipe usage in lmNULISAseq.R).
+- version: 1.4.2
+  date: '2026-02-15'
+  breaking: false
+  highlights:
+  - render_QC_report() parameter reordering and defaults (xml_files moved first; defaults for
+    output_filename, output_dir, dataDir).
+  - lod() parameter ordering and roxygen documentation improved.
+  - quantifiability() uses intersect() to find common samples, preventing errors on mismatched
+    sample lists.
+  - loadNULISAseq() now calculates LOD_pgmL from XML data for AQ assays.
+- version: 1.4.1
+  date: '2026-01-16'
+  breaking: false
+  highlights:
+  - importNULISAseq() robustness work, including validation of internal AUTO_PLATE IDs with
+    duplicate detection before processing.
+- version: 1.4.0
+  date: '2026-01-11'
+  breaking: false
+  highlights:
+  - Described by the project as a major expansion — new analytical capabilities, enhanced
+    visualization tools, and improved data processing functions.
+x-evidence:
+  fetched: '2026-08-06'
+  url: https://nulisaseqr.alamarbio.com/news/
+  http_status: 200
+  entries_captured: 5
+  note: NEWS.md carries exactly these five releases; this is the full published window.

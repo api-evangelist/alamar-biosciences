@@ -1,0 +1,65 @@
+generated: '2026-08-06'
+method: probed
+source: live GET of the /.well-known/ discovery surface on every known Alamar host
+result: none
+note: >-
+  Nothing was found. Recorded as evidence of the probe, not as a discovery surface — NO
+  `WellKnown`, `SecurityTxt` or `APICatalog` pointer is wired in apis.yml, because no document
+  exists to point at. On alamarbio.com every path — including robots.txt and a deliberately
+  bogus control path — returns HTTP 202 with a Sucuri `sgcaptcha` interstitial, so the 202s
+  below are a WAF challenge, not a document. On nulisaseqr.alamarbio.com (GitHub Pages,
+  pkgdown) every path returns a genuine 404, matched byte-for-byte against a control path.
+hosts:
+- host: https://alamarbio.com
+  behavior: sucuri-sgcaptcha-interstitial-on-every-path
+  control_path: /zzz-control-404
+  control_status: 202
+  documents:
+  - {path: /.well-known/security.txt, status: 202, found: false}
+  - {path: /security.txt, status: 202, found: false}
+  - {path: /.well-known/openid-configuration, status: 202, found: false}
+  - {path: /.well-known/oauth-authorization-server, status: 202, found: false}
+  - {path: /.well-known/oauth-protected-resource, status: 202, found: false}
+  - {path: /.well-known/api-catalog, status: 202, found: false}
+  - {path: /.well-known/ai-plugin.json, status: 202, found: false}
+  - {path: /.well-known/agent-card.json, status: 202, found: false}
+  - {path: /.well-known/agent.json, status: 202, found: false}
+- host: https://nulisaseqr.alamarbio.com
+  behavior: github-pages-404
+  control_path: /zzz-control-404
+  control_status: 404
+  documents:
+  - {path: /.well-known/security.txt, status: 404, found: false}
+  - {path: /security.txt, status: 404, found: false}
+  - {path: /.well-known/openid-configuration, status: 404, found: false}
+  - {path: /.well-known/oauth-authorization-server, status: 404, found: false}
+  - {path: /.well-known/oauth-protected-resource, status: 404, found: false}
+  - {path: /.well-known/api-catalog, status: 404, found: false}
+  - {path: /.well-known/ai-plugin.json, status: 404, found: false}
+  - {path: /.well-known/agent-card.json, status: 404, found: false}
+  - {path: /.well-known/agent.json, status: 404, found: false}
+contract_discovery:
+  ran: '2026-08-06'
+  openapi: not-found
+  graphql: not-found
+  mcp: not-found
+  agent_card: not-found
+  detail: >-
+    STEP 0b was run against every host that resolves. No API host exists to probe: DNS lookups
+    for api., developer., docs., app., portal., cloud., data., argo., support., status. and
+    trust..alamarbio.com all return NXDOMAIN. /openapi.json, /openapi.yaml, /swagger.json and
+    /api-docs were probed on both live hosts (202 challenge / 404). The four MCP-server repos
+    in the Alamar GitHub org are all forks of third-party servers, not Alamar-operated
+    endpoints, so no MCP surface is claimed.
+  subdomains_probed_nxdomain:
+  - api.alamarbio.com
+  - developer.alamarbio.com
+  - docs.alamarbio.com
+  - app.alamarbio.com
+  - portal.alamarbio.com
+  - cloud.alamarbio.com
+  - data.alamarbio.com
+  - argo.alamarbio.com
+  - support.alamarbio.com
+  - status.alamarbio.com
+  - trust.alamarbio.com

@@ -1,0 +1,61 @@
+generated: '2026-08-06'
+method: searched
+source: https://github.com/Alamar-Biosciences/NULISAseqR
+notes: >-
+  Alamar Biosciences publishes no public web API, so there is no API client SDK. What it does
+  publish first-party is an open-source data-analysis library for the output of its own
+  instruments: the NULISAseqR R package. It is NOT distributed through CRAN (probed
+  https://cran.r-project.org/package=NULISAseqR -> 404) or r-universe (404); the only
+  supported install path is source install from GitHub. No first-party npm, PyPI, Maven,
+  NuGet, Go, RubyGems, Packagist or crates.io package was found. Because none of these are
+  clients of a callable API, NO `SDKs` pointer is emitted for this provider.
+registries_probed:
+- registry: cran
+  url: https://cran.r-project.org/package=NULISAseqR
+  status: 404
+- registry: r-universe
+  url: https://alamar-biosciences.r-universe.dev/api/packages
+  status: 404
+- registry: pypi
+  url: https://pypi.org/pypi/nulisaseq/json
+  status: 404
+- registry: npm
+  url: https://registry.npmjs.org/nulisaseq
+  status: 404
+packages:
+- language: r
+  registry: github
+  name: NULISAseqR
+  version: 1.5.1
+  license: GPL-3
+  url: https://github.com/Alamar-Biosciences/NULISAseqR
+  docs: https://nulisaseqr.alamarbio.com/
+  issues: https://github.com/Alamar-Biosciences/NULISAseqR/issues
+  install: devtools::install_github('Alamar-Biosciences/NULISAseqR')
+  official: true
+  kind: data-analysis-library
+  description: >-
+    Comprehensive analysis tools for NULISAseq proteomic data: XML data import, intra- and
+    inter-plate normalization against internal controls, quality control metrics, limit of
+    detection and detectability, differential abundance / outcome modeling, visualization
+    (heatmaps, PCA, volcano) and automated HTML QC report generation.
+  maintainer: Alamar Biosciences Bioinformatics Team <bioinfo@alamarbio.com>
+  requires: R (>= 4.1.0); README states R 4.4+
+  install_prerequisites:
+  - BiocManager::install("ComplexHeatmap")
+  - install.packages('ggalt', repos = "http://packagemanager.posit.co/cran/2025-08-02")
+  - devtools::install_github('Alamar-Biosciences/PCAtools')
+  x-evidence:
+    fetched: '2026-08-06'
+    url: https://raw.githubusercontent.com/Alamar-Biosciences/NULISAseqR/main/DESCRIPTION
+    http_status: 200
+forks_not_first_party:
+  note: >-
+    The Alamar-Biosciences GitHub org carries 13 forks of third-party projects (ComplexHeatmap,
+    PCAtools, iheatmapr, qs, cicerone, shiny.telemetry, rdmlpython, claude-scientific-writer,
+    and four MCP-server repos: medical-mcps, GTEx-MCP-Server, ProteinAtlas-MCP-Server,
+    GeneOntology-MCP-Server). Every one has `fork: true` on the GitHub API. These are NOT
+    Alamar-authored packages or Alamar-operated MCP servers and are deliberately excluded from
+    `packages[]` and from any MCPServer artifact.
+  verified: '2026-08-06'
+  url: https://api.github.com/orgs/Alamar-Biosciences/repos

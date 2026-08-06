@@ -1,17 +1,36 @@
 aid: alamar-biosciences
 name: Alamar Biosciences
-description: 'Alamar Biosciences is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Alamar Biosciences is a privately held life sciences company headquartered in Fremont,
+  California, building precision proteomics tools aimed at the earliest detection of disease.
+  Its NULISA (NUcleic acid Linked Immuno-Sandwich Assay) chemistry and Attobody reagents,
+  run on the ARGO and ARGO HT automated immunoassay systems, deliver attomolar-sensitivity,
+  high-multiplex protein measurement for biomarker discovery, translational research,
+  neurodegeneration and immuno-oncology panels. Alamar publishes no public web API. Its
+  developer-facing surface is open source rather than service based: the first-party
+  NULISAseqR R package (GPL-3) for importing, normalizing, quality-controlling and analyzing
+  NULISAseq XML output, documented at nulisaseqr.alamarbio.com, alongside the NULISA Analysis
+  Software (NAS) that ships with the instruments.
 url: https://raw.githubusercontent.com/api-evangelist/alamar-biosciences/refs/heads/main/apis.yml
+image: https://avatars.githubusercontent.com/u/72825231?v=4
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-secondary-market: https://forgeglobal.com/alamar-biosciences_stock/
+x-tier: profile
+x-tier-reason: enrichment-pass
 specificationVersion: '0.20'
 created: '2026-08-06'
 modified: '2026-08-06'
 tags:
 - Company
+- Proteomics
+- Life Sciences
+- Biotechnology
+- Biomarkers
+- Diagnostics
+- Bioinformatics
+- Laboratory Instruments
+- Open Source
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +39,43 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://forgeglobal.com/alamar-biosciences_stock/
+  url: https://alamarbio.com/
+- type: GitHubOrganization
+  url: https://github.com/Alamar-Biosciences
+- type: GitHubRepository
+  url: https://github.com/Alamar-Biosciences/NULISAseqR
+- type: Documentation
+  url: https://nulisaseqr.alamarbio.com/
+- type: OpenSource
+  url: https://github.com/Alamar-Biosciences/NULISAseqR
+- type: Packages
+  url: packages/alamar-biosciences-packages.yml
+- type: ChangeLog
+  url: changelog/alamar-biosciences-changelog.yml
+- type: LLMsTxt
+  url: llms/alamar-biosciences-llms.txt
+- type: DomainSecurity
+  url: security/alamar-biosciences-domain-security.yml
+x-enrichment:
+  date: '2026-08-06'
+  status: minimal
+  artifacts_added: 5
+  pass: local-v1
+x-coverage:
+  state: blocked
+  reason: bot-challenge
+  detail: >-
+    Every path on alamarbio.com — including /robots.txt and a deliberately bogus control path —
+    answers HTTP 202 with a Sucuri sgcaptcha interstitial instead of the page, so not one page
+    of Alamar's own site could be read; the only readable first-party surface was the GitHub
+    org and the NULISAseqR pkgdown docs, and no api/developer/docs subdomain exists to probe.
+  evidence:
+  - url: https://alamarbio.com/robots.txt
+    status: 202
+  - url: https://alamarbio.com/.well-known/agent-card.json
+    status: 202
+  - url: https://nulisaseqr.alamarbio.com/
+    status: 200
+  - url: https://api.github.com/orgs/Alamar-Biosciences/repos
+    status: 200
+  checked: '2026-08-06'
