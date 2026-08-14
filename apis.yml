@@ -1,16 +1,14 @@
 aid: alamar-biosciences
 name: Alamar Biosciences
-description: >-
-  Alamar Biosciences is a privately held life sciences company headquartered in Fremont,
-  California, building precision proteomics tools aimed at the earliest detection of disease.
-  Its NULISA (NUcleic acid Linked Immuno-Sandwich Assay) chemistry and Attobody reagents,
-  run on the ARGO and ARGO HT automated immunoassay systems, deliver attomolar-sensitivity,
-  high-multiplex protein measurement for biomarker discovery, translational research,
-  neurodegeneration and immuno-oncology panels. Alamar publishes no public web API. Its
-  developer-facing surface is open source rather than service based: the first-party
-  NULISAseqR R package (GPL-3) for importing, normalizing, quality-controlling and analyzing
-  NULISAseq XML output, documented at nulisaseqr.alamarbio.com, alongside the NULISA Analysis
-  Software (NAS) that ships with the instruments.
+description: 'Alamar Biosciences is a privately held life sciences company headquartered in Fremont, California,
+  building precision proteomics tools aimed at the earliest detection of disease. Its NULISA (NUcleic
+  acid Linked Immuno-Sandwich Assay) chemistry and Attobody reagents, run on the ARGO and ARGO HT automated
+  immunoassay systems, deliver attomolar-sensitivity, high-multiplex protein measurement for biomarker
+  discovery, translational research, neurodegeneration and immuno-oncology panels. Alamar publishes no
+  public web API. Its developer-facing surface is open source rather than service based: the first-party
+  NULISAseqR R package (GPL-3) for importing, normalizing, quality-controlling and analyzing NULISAseq
+  XML output, documented at nulisaseqr.alamarbio.com, alongside the NULISA Analysis Software (NAS) that
+  ships with the instruments.'
 url: https://raw.githubusercontent.com/api-evangelist/alamar-biosciences/refs/heads/main/apis.yml
 image: https://avatars.githubusercontent.com/u/72825231?v=4
 x-type: company
@@ -63,6 +61,22 @@ common:
   url: llms/alamar-biosciences-llms.txt
 - type: DomainSecurity
   url: security/alamar-biosciences-domain-security.yml
+- type: Website
+  url: https://alamarbio.com
+- type: Blog
+  url: https://alamarbio.com/blog/
+- type: Support
+  url: https://alamarbio.com/contact-us/
+- type: PrivacyPolicy
+  url: https://alamarbio.com/privacy-policy/
+- type: LLMsTxt
+  url: llms/alamar-biosciences-llms.txt
+- type: DomainSecurity
+  url: security/alamar-biosciences-domain-security.yml
+- type: LLMsTxt
+  url: llms/alamar-biosciences-llms.txt
+- type: DomainSecurity
+  url: security/alamar-biosciences-domain-security.yml
 x-enrichment:
   date: '2026-08-06'
   status: minimal
@@ -71,11 +85,10 @@ x-enrichment:
 x-coverage:
   state: blocked
   reason: bot-challenge
-  detail: >-
-    Every path on alamarbio.com — including /robots.txt and a deliberately bogus control path —
-    answers HTTP 202 with a Sucuri sgcaptcha interstitial instead of the page, so not one page
-    of Alamar's own site could be read; the only readable first-party surface was the GitHub
-    org and the NULISAseqR pkgdown docs, and no api/developer/docs subdomain exists to probe.
+  detail: Every path on alamarbio.com — including /robots.txt and a deliberately bogus control path —
+    answers HTTP 202 with a Sucuri sgcaptcha interstitial instead of the page, so not one page of Alamar's
+    own site could be read; the only readable first-party surface was the GitHub org and the NULISAseqR
+    pkgdown docs, and no api/developer/docs subdomain exists to probe.
   evidence:
   - url: https://alamarbio.com/robots.txt
     status: 202
