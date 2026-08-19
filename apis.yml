@@ -16,7 +16,7 @@ x-source: harvest:secondary-market
 x-secondary-market: https://forgeglobal.com/alamar-biosciences_stock/
 x-tier: profile
 x-tier-reason: enrichment-pass
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-06'
 modified: '2026-08-06'
 tags:
