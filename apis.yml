@@ -10,6 +10,18 @@ description: 'Alamar Biosciences is a privately held life sciences company headq
   XML output, documented at nulisaseqr.alamarbio.com, alongside the NULISA Analysis Software (NAS) that
   ships with the instruments.'
 url: https://raw.githubusercontent.com/api-evangelist/alamar-biosciences/refs/heads/main/apis.yml
+deliveryModel:
+  model: self-hosted
+  license: GPL-3.0
+  open_source: true
+  commercial: false
+  callable_host: false
+  label: Self-hosted open source · you run it yourself
+  confidence: high
+  source:
+  - license
+  generated: '2026-08-28'
+  method: derived
 image: https://avatars.githubusercontent.com/u/72825231?v=4
 x-type: company
 x-source: harvest:secondary-market
