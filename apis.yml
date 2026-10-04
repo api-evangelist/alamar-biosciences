@@ -52,7 +52,7 @@ tags:
 - Diagnostics
 - Bioinformatics
 - Laboratory Instruments
-- Open-Source
+- Open Source
 tags_raw:
 - Company
 - Proteomics
@@ -63,6 +63,7 @@ tags_raw:
 - Bioinformatics
 - Laboratory Instruments
 - Open Source
+- Open-Source
 apis: []
 maintainers:
 - FN: Kin Lane
